@@ -1,0 +1,11 @@
+package ke.co.nectar.token.domain.tokensubclass.class0;
+
+import ke.co.nectar.token.domain.tokensubclass.TokenSubClass;
+import ke.co.nectar.token.exceptions.InvalidRangeException;
+
+public class TimeTokenSubClass extends TokenSubClass {
+
+    public TimeTokenSubClass() throws InvalidRangeException {
+        super(0x3L, "Time");
+    }
+}

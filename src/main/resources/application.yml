@@ -1,0 +1,39 @@
+server:
+  port: ${PORT:8084}
+spring:
+  jackson:
+    time-zone: UTC
+  datasource:
+    initialization-mode: always
+    platform: postgres
+    url: jdbc:postgresql://127.0.0.1:5432/tokens_service
+    username: postgres
+    password: password
+  jpa:
+    show_sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        jdbc:
+          lob:
+            non_contextual_creation: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+      generate-ddl: true
+journal:
+  name: tokens-service.journal
+auth:
+  username: ${TOKENS_SERVICE_USERNAME:tokens_service}
+  password: ${TOKENS_SERVICE_PASSWORD:$2y$12$Sr9Zsb.eVzosnkwtOMDfjOVM6YqgPSk/6mpOrbaFXBDExiSVxZlmm} # password
+  roles: ADMIN
+redis:
+  port: 6379
+  host: localhost
+  expiretime: 100
+  password:
+endpoints:
+  users:
+    host: ${USERS_SERVICE_HOST:http://localhost:8082}/v1/user
+    username: ${USERS_SERVICE_USERNAME:user_service}
+    password: ${USERS_SERVICE_PASSWORD:password}
