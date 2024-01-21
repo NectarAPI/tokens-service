@@ -55,6 +55,11 @@ public class Token {
         setCreatedAt(createdAt);
     }
 
+    @Override
+    public String toString() {
+        return String.format("ref: %s", ref);
+    }
+
     public String getRef() {
         return ref;
     }
