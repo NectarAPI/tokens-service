@@ -6,9 +6,9 @@ spring:
   datasource:
     initialization-mode: always
     platform: postgres
-    url: jdbc:postgresql://127.0.0.1:5432/tokens_service
-    username: postgres
-    password: password
+    url: jdbc:postgresql://${TOKENS_SERVICE_DB_HOST:localhost:5432}/${TOKENS_SERVICE_DB:tokens_service}
+    username: ${TOKENS_SERVICE_DB_USERNAME:tokens_service}
+    password: ${TOKENS_SERVICE_DB_PASSWORD:password}
   jpa:
     show_sql: true
     properties:
